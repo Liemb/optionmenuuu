@@ -2,6 +2,7 @@ package com.example.optionmenuuu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,9 +11,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+/**
+ * @author liem
+ * @since 16/11/19
+ * in this activity the user can change the background to 3 different colors using option menu.
+ */
 public class MainActivity extends AppCompatActivity {
     LinearLayout ll;
-    Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,10 +25,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ll = (LinearLayout) findViewById(R.id.ll);
-        btn = (Button) findViewById(R.id.btn);
     }
 
 
+    /**
+     * inflating the menu
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -32,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * changing the background according to the user's choice
+     */
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
@@ -42,7 +52,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     *going to the next activity
+     */
     public void click(View view) {
+        Intent si = new Intent (this,FourColors.class);
+        startActivity(si);
 
     }
 }
